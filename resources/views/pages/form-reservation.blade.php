@@ -47,11 +47,11 @@
       <div class="row">
         <div class="form-group required col-6">
           <label for="PostTime"  class="is-required">Heure de debut</label>
-          <input name="heure_debut" id="hre_debut" class="form-control" type="time" id="PostTime" required="required" aria-required="true" aria-describedby="date-format"  title="Entrer une heure">
+          <input value="{{old('heure_debut')}}" name="heure_debut" id="hre_debut" class="form-control" type="time" id="PostTime" required="required" aria-required="true" aria-describedby="date-format"  title="Entrer une heure">
         </div>
         <div class="form-group required col-6">
           <label for="PostTime" class="is-required">Heure de fin</label>
-          <input name="heure_fin" id="hre_fin" class="form-control" type="time" id="PostTime" required="required" aria-required="true" aria-describedby="date-format"  title="Entrer une heure">
+          <input name="heure_fin" value="{{old('heure_fin')}}" id="hre_fin" class="form-control" type="time" id="PostTime" required="required" aria-required="true" aria-describedby="date-format"  title="Entrer une heure">
         </div>
       </div>
        <div class="">
@@ -71,8 +71,8 @@
         @endif
       </div> <br>
       <div class="form-group required">
-        <label for="motif" id="motif" class="is-required">Motif de reservation  </label> <br>
-        <textarea name="motif" id="motif" required="required" style="width: 100%;" rows="2"></textarea>
+        <label for="motif"  class="is-required">Motif de reservation  </label> <br>
+        <textarea id="motif" name="motif" id="motif" required="required" style="width: 100%;" rows="2"></textarea>
       </div>
       <div class="form-group">
         <label for="detail">Autre detail (optionnel)  </label> <br>
@@ -84,7 +84,7 @@
         <span class="loading"><i class="icon-reload"></i></span>
         <span class="check"><i class="icon-checkbox-tick"></i></span>
       </button>
-
+<br><br>
 
     </form>
 

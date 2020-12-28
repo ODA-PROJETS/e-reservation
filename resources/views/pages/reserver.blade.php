@@ -22,8 +22,8 @@
           @foreach ($salles as $salle)
 
         <div v-for="salle in salles" class="card" style="background-image: url({{asset('img/ORANGE_LOGO_rgb.jpg')}})">
-          <div title="disponible" style="margin:5px;z-index:1111;height:20px;width:20px;background:green;border-radius:50%">
-          </div>
+          {{-- <div title="disponible" style="margin:5px;z-index:1111;height:20px;width:20px;background:green;border-radius:50%">
+          </div> --}}
           <div class="content">
             <h2 class="title">{{$salle->name}}</h2>
             <p class="copy">{{$salle->description}}</p>

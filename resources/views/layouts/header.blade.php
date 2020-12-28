@@ -32,7 +32,7 @@
               <button type="button" class="nav-link btn btn-link btn-inverse dropdown-toggle d-flex align-items-center"
                 data-toggle="dropdown">
                 <span class="svg-avatar mr-1" aria-hidden="true"></span>
-                <span class="text-primary">Koffi<span>
+                <span class="text-primary">{{\Auth::user()->name}}<span>
               </button>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a class="dropdown-item" href="{{route('index')}}">Mes reservation</a></li>

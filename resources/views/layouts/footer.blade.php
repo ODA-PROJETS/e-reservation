@@ -1,4 +1,4 @@
-<footer role="contentinfo" class="o-footer">
+<footer role="contentinfo" class="o-footer" id="footer">
     <div class="o-footer-bottom">
       <div class="container">
         <div class="row mb-0">
@@ -10,3 +10,11 @@
       </div>
     </div>
   </footer>
+<style>
+    #footer{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+</style>

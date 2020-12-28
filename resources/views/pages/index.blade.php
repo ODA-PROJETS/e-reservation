@@ -41,12 +41,12 @@
             @endphp
 
             <tr>
-                <th scope="row">res_010</th>
+                <th scope="row">res_0{{$salle->id}}</th>
                 <td>{{$salle->name}}</td>
                 <td>{{$res->date_start}} {{$res->hour_start}}</td>
                 <td>{{$res->date_end}} {{$res->hour_end}}</td>
                 <td><label class="label">{{$status->name}}</label></td>
-                <td><a href="#"><i class="icon-Pencil" style="color: black;"></i></a></td>
+                <td><a href="{{route('detail_reservation',[$res->id])}}"><i class="icon-Pencil" style="color: black;"></i></a></td>
               </tr>
             @endforeach
           </tbody>

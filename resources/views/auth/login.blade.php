@@ -30,7 +30,7 @@
                 @endforeach
             </select>
 			<input  class="form-control mt-3" name="password" type="password" placeholder="mot de passe" required/>
-			<button class="mt-4" type="submit">S'inscrire</button>
+			<button class="mt-4 btn-secondary" type="submit">S'inscrire</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
@@ -43,7 +43,7 @@
 			<input class="form-control" name="email" required type="email" placeholder="Email" maxlength="40" value="{{ old('email') }}" />
 			<input class="form-control mt-3" name="password" required type="password" placeholder="mot de passe" />
 			<!-- <a href="#">Forgot your password?</a> -->
-			<button class="mt-4" type="submit">se connecter </button>
+			<button class="mt-4 btn-secondary" type="submit">se connecter </button>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -87,7 +87,7 @@
                                 <label for="Username">Adresse e-mail<span class="req-star"> *</span></label>
                                 <input class="form-control" required id="Username" name="email" type="text" value="">
 
-                            </div> 
+                            </div>
 
                             <div class="form-row mt-3">
                                 <label for="Password">Mot de passe<span class="req-star"> *</span></label>

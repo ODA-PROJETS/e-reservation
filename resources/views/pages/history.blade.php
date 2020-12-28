@@ -24,7 +24,7 @@
               <p>{{$salle->description}}</p>
 
               <div class="p-2">
-                <a href="javascript:void(0)" class="btn btn-secondary " href="javascript:void(0)">reservé </a>
+                <a href="javascript:void(0)" class="btn btn-secondary ">reservé </a>
                 <a href="javascript:void(0)" class="btn btn-secondary icon-trash "></a>
               </div>
             </div>

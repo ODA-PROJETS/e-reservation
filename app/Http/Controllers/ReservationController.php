@@ -53,13 +53,15 @@ class ReservationController extends Controller
         $user = \Auth::user();
         $date_debut = $request->date_debut;
         $date_fin = $request->date_fin;
-        $hre_debut = $request->hre_debut;
-        $hre_fin = $request->hre_fin;
+        $hre_debut = $request->heure_debut;
+        $hre_fin = $request->heure_fin;
         $motif = $request->motif;
         $detail = $request->detail;
         $salle_id=$request->salle_id;
+
         $departement_id= Departement::where('user_id',$user->id)->first()->id;
-        if($hre_debut=="" || $hre_fin=="" || $motif=="" || $detail==""){
+        // dd($hre_debut,$hre_fin,$motif);
+        if($hre_debut=="" || $hre_fin=="" || $motif=="" ){
             session()->flash('alerte', 'veillez renseignez tous les champs');
             session()->flash('type', 'error');
 
@@ -69,8 +71,16 @@ class ReservationController extends Controller
         }
 
         Reservation::insert(['date_start'=>$date_debut,'hour_start'=>$hre_debut,'date_end'=>$date_fin,'hour_end'=>$hre_fin,'salle_id'=>$salle_id,'status_id'=>1,'departement_id'=>$departement_id]);
-        dd($request);
+        return redirect()->route('reservationOk');
+        // dd($request);
 
+    }
+
+    public function detailReservation(Reservation $reservation){
+        return view('pages.detail_reservation',compact('reservation'));
+    }
+    public function reservationOk(){
+        return View('pages.reservationOk');
     }
 
     public function detail2(Salle $salle,$debut,$fin){

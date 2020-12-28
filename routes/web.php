@@ -22,9 +22,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/salle/detail/', [ReservationController::class,'detail'])->name('detailSalle');
 
+    Route::get('/reservation/{reservation}/detail',[ReservationController::class,'detailReservation'])->name('detail_reservation');
+
     Route::get('/salle/{salle}/detail/{debut}/{fin}', [ReservationController::class,'detail'])->name('detail_salle');
 
-    Route::post('reservation', [ReservationController::class,'reservation'])->name('valideReservation');
+    Route::post('/reservation', [ReservationController::class,'reservation'])->name('valideReservation');
+
+    Route::get('/reservation-terminer',[ReservationController::class,'reservationOk'])->name('reservationOk');
+
 });
 
 
