@@ -31611,16 +31611,20 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   data: {
     salles: [],
-    lol: "llol",
     date_debut: "",
     date_fin: ""
   },
   mounted: function mounted() {
-    // alert("lol");
+    alert("lol");
     this.getsalles();
+    this.triesalle();
   },
   methods: {
     triesalle: function triesalle() {
+      alert("hh");
+    },
+    detail: function detail() {
+      axios.get('detail/1');
       alert("lol");
     },
     getsalles: function getsalles() {

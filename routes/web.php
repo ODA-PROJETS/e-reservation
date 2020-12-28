@@ -15,14 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [ReservationController::class,'index'])->name('index');
-    
+
     Route::get('/history',  [ReservationController::class,'history'])->name('history');
 
     Route::get('/salle', [ReservationController::class,'salle'])->name('reserver');
 
-    Route::get('/salle/{salle}/detail/', [ReservationController::class,'detail'])->name('detailSalle');
+    Route::get('/salle/detail/', [ReservationController::class,'detail'])->name('detailSalle');
 
     Route::get('/salle/{salle}/detail/{debut}/{fin}', [ReservationController::class,'detail'])->name('detail_salle');
+
+    Route::post('reservation', [ReservationController::class,'reservation'])->name('valideReservation');
 });
 
 

@@ -35,14 +35,44 @@ class ReservationController extends Controller
     }
 
     public function salle(){
-        $salle = Salle::all();
-        return view('pages.reserver', compact('salle'));
+        $salles = Salle::all();
+        return view('pages.reserver', compact('salles'));
     }
 
-    public function detail(Salle $salle){
-        return view('pages.form-reservation', compact('salle'));
+    public function detail(Request $request){
+
+        $salle=Salle::find($request->salle_id);
+        $debut=$request->debut;
+        $fin=$request->fin;
+        $reservations = Reservation::where('salle_id',$salle->id)->whereIn('date_start',[$debut,$fin])->OrwhereIn('date_end',[$debut,$fin])->get();
+        // dd($reservations);
+        return view('pages.form-reservation', compact('salle','debut','fin','reservations'));
     }
-    
+
+    public function reservation(Request $request){
+        $user = \Auth::user();
+        $date_debut = $request->date_debut;
+        $date_fin = $request->date_fin;
+        $hre_debut = $request->hre_debut;
+        $hre_fin = $request->hre_fin;
+        $motif = $request->motif;
+        $detail = $request->detail;
+        $salle_id=$request->salle_id;
+        $departement_id= Departement::where('user_id',$user->id)->first()->id;
+        if($hre_debut=="" || $hre_fin=="" || $motif=="" || $detail==""){
+            session()->flash('alerte', 'veillez renseignez tous les champs');
+            session()->flash('type', 'error');
+
+            return back()->withInput()->withErrors([
+                'error' => 'veillez renseignez tous les champs !',
+            ]);
+        }
+
+        Reservation::insert(['date_start'=>$date_debut,'hour_start'=>$hre_debut,'date_end'=>$date_fin,'hour_end'=>$hre_fin,'salle_id'=>$salle_id,'status_id'=>1,'departement_id'=>$departement_id]);
+        dd($request);
+
+    }
+
     public function detail2(Salle $salle,$debut,$fin){
         return view('pages.form-reservation', compact('salle','debut','fin'));
     }

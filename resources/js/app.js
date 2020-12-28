@@ -6,21 +6,25 @@ const app = new Vue({
     data : {
 
         salles : [],
-        lol : "llol",
         date_debut: "",
         date_fin: "",
 
     },
     mounted() {
-        // alert("lol");
+        alert("lol");
         this.getsalles();
+        this.triesalle();
     },
-    
+
     methods : {
         triesalle(){
-            alert("lol")
+            alert("hh")
         },
-        
+        detail(){
+
+            axios.get('detail/1');
+            alert("lol");
+        },
         getsalles(){
             axios.get('/api/salles')
             .then((response) => {
@@ -41,7 +45,7 @@ const app = new Vue({
              }
             else{
                 this.$refs.form.submit;
-           
+
 
              }
         },
