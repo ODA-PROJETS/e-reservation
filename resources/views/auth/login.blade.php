@@ -81,7 +81,7 @@
                          @csrf
                             <br>
                             @if($errors->has('invalid'))
-                                <h3 class="text-warning help is-danger text-center">{{ $errors->first('invalid') }}</h3>
+                                <h3 class="text-center mt-2" style="color:red">{{ $errors->first('invalid') }}</h3>
                             @endif
                             <div class="form-row  mt-3">
                                 <label for="Username">Adresse e-mail<span class="req-star"> *</span></label>
@@ -110,7 +110,7 @@
 					<p>Veuillez compléter un bref formulaire d'inscription pour créer un compte et obtenir l'accès à ce site.
 
 Les personnes ayant des adresses e-mail Orange internes bénéficient d'un accès immédiat, toutefois si vous êtes un fournisseur ou un partenaire, vous devrez nous dire avec qui vous travaillez et nous demanderons à cette personne d'approuver votre demande.</p>
-					<a class="btn btn-secondary" href="#">
+					<a class="btn btn-secondary" href="{{route('inscription_mobile')}}">
                         S'inscrire
                     </a>
 				</div>

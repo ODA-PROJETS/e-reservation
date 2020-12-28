@@ -20,6 +20,15 @@ class AuthController extends Controller
 
     }
 
+    public function inscription_mobile(){
+        if (!Auth::check()) {
+            return view('auth.register-mobile');
+        }
+
+        return redirect()->route('index');
+
+
+    }
  
     public function inscription(Request $request){
         /* vars */
@@ -34,22 +43,23 @@ class AuthController extends Controller
                 'invalid-inscription' => 'veuillez choisir un departement valide.',
             ]);
         }
-        dd($departement);
+        // dd($departement);
         /* vérifier l'email */
         $verif = User::where('email', $email)->first();
         if ($verif) {
             session()->flash('alerte', 'email déja utilisé veuillez réessayer');
             session()->flash('type', 'error');
+            
             return back()->withInput()->withErrors([
                 'invalid-inscription' => 'Un utilisateur existe déjà avec la même adresse mail.',
             ]);
         }
         /* création d'un compte */
         $client = new User();
-        $client->nom = $name;
+        $client->name = $name;
         $client->email = $email;
         $client->password = bcrypt($password);
-        $client->departement=$departement;
+        $client->departement_id=$departement;
         $saved = $client->save();
         if ($saved) {
             /* envoie du mail */

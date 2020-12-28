@@ -15,11 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [ReservationController::class,'index'])->name('index');
+    
     Route::get('/history',  [ReservationController::class,'history'])->name('history');
 
     Route::get('/salle', [ReservationController::class,'salle'])->name('reserver');
 
-    Route::get('/salle/{salle}/detail', [ReservationController::class,'detail'])->name('detail-salle');
+    Route::get('/salle/{salle}/detail/', [ReservationController::class,'detail'])->name('detailSalle');
+
+    Route::get('/salle/{salle}/detail/{debut}/{fin}', [ReservationController::class,'detail'])->name('detail_salle');
 });
 
 
@@ -28,4 +31,4 @@ Route::post('/inscription', [\App\Http\Controllers\AuthController::class,'inscri
 Route::get('/login',[\App\Http\Controllers\AuthController::class,'index'])->name('login');
 Route::get('/logout',[\App\Http\Controllers\AuthController::class,'logout'])->name('logout');
 
-
+Route::get('/inscription-mobile', [\App\Http\Controllers\AuthController::class,'inscription_mobile'])->name('inscription_mobile');
