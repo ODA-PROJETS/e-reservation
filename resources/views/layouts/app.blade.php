@@ -19,7 +19,7 @@
     <link href="{{asset('css/boosted.min.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('packages/noty/noty.css')}}">
     <link rel="stylesheet" href="{{asset('/css/noty_theme.css')}}">
-
+    @livewireStyles
     <!-- Custom CSS -->
     @yield('extra-css')
 </head>
@@ -28,6 +28,7 @@
     @include('layouts.header')
     <section class="section-content">
         <div class="container-fluid pt-5" >
+    
 
             @yield('content')
 
@@ -38,10 +39,11 @@
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script> --}}
-    <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script> 
+    <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
     <script src="{{asset('js/boosted.bundle.min.js')}}"></script>
     {{-- <script src="{{asset('js/form.js')}}"></script> --}}
     <script src="{{ asset('packages/noty/noty.js') }}"></script>
+    @livewireScripts
     @if(Session::has('alerte'))
 
 <script type="text/javascript">
@@ -58,6 +60,7 @@
         }).show();
 
     </script>
+
     @endif
     @yield('extra-js')
 </body>

@@ -36,7 +36,7 @@ class ReservationController extends Controller
 
     public function salle(){
         $salles = Salle::all();
-        return view('pages.reserver', compact('salles'));
+        return view('pages.recherche', compact('salles'));
     }
 
     public function detail(Request $request){
