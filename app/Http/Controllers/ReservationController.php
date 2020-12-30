@@ -36,7 +36,7 @@ class ReservationController extends Controller
 
     public function salle(){
         $salles = Salle::all();
-        return view('pages.recherche', compact('salles'));
+        return view('pages.reserver', compact('salles'));
     }
 
     public function detail(Request $request){
@@ -70,14 +70,21 @@ class ReservationController extends Controller
             ]);
         }
 
-        Reservation::insert(['date_start'=>$date_debut,'hour_start'=>$hre_debut,'date_end'=>$date_fin,'hour_end'=>$hre_fin,'salle_id'=>$salle_id,'status_id'=>1,'departement_id'=>$departement_id]);
+        Reservation::insert(['date_start'=>$date_debut,'hour_start'=>$hre_debut,'date_end'=>$date_fin,'hour_end'=>$hre_fin,'salle_id'=>$salle_id,'status_id'=>1,'departement_id'=>$departement_id,'motif'=>$motif,'others'=>$detail]);
         return redirect()->route('reservationOk');
         // dd($request);
 
     }
 
     public function detailReservation(Reservation $reservation){
-        return view('pages.detail_reservation',compact('reservation'));
+        $user = \Auth::user();
+        $departement= Departement::where('user_id',$user->id)->first();
+        $departement_id = $departement ? $departement->id : 0;
+        $nbre_reservations_termines = Reservation::where("departement_id",$departement_id)->where('status_id',4)->count();
+        $nbre_reservations_cours = Reservation::where("departement_id",$departement_id)->whereIn('status_id',[1,2,3])->count();
+
+
+        return view('pages.detail_reservation',compact('reservation','nbre_reservations_cours','nbre_reservations_termines'));
     }
     public function reservationOk(){
         return View('pages.reservationOk');
@@ -86,8 +93,9 @@ class ReservationController extends Controller
     public function detail2(Salle $salle,$debut,$fin){
         return view('pages.form-reservation', compact('salle','debut','fin'));
     }
-    public function store(Request $request)
+    public function annuler(Reservation $reservation)
     {
-
+        $reservation->update(['status'=>5]);
+        return redirect()->route('index', compact('reservation'));
     }
 }

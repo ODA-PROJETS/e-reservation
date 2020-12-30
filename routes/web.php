@@ -30,6 +30,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/reservation-terminer',[ReservationController::class,'reservationOk'])->name('reservationOk');
 
+    Route::get('/annuler/{reservation}',[ReservationController::class,'annuler'])->name('annuler');
+
+
 });
 
 

@@ -28,7 +28,7 @@ class ReservationsTableSeeder extends Seeder
                 'hour_end' => '17:12',
                 'salle_id' => 1,
                 'departement_id' => 2,
-                'status_id' => 4,
+                'status_id' => 3,
                 'created_at' => '2020-12-23 15:12:28',
                 'updated_at' => '2020-12-23 16:10:22',
             ),
@@ -44,6 +44,19 @@ class ReservationsTableSeeder extends Seeder
                 'status_id' => 4,
                 'created_at' => '2020-12-23 15:12:28',
                 'updated_at' => '2020-12-23 16:10:22',
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'date_start' => '2020-12-30',
+                'hour_start' => '11:30',
+                'date_end' => '2020-12-30',
+                'hour_end' => '12:30',
+                'salle_id' => 1,
+                'departement_id' => 2,
+                'status_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
             ),
         ));
         

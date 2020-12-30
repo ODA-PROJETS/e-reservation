@@ -18,13 +18,23 @@
         </div>
 
       </div>
+      {{-- <div class="row">
+        <div class="form-group col-6 col-lg-4 offset-lg-2">
+            <label for="PostTime" >Heure de debut</label>
+            <input value="{{old('heure_debut')}}" name="heure_debut" id="hre_debut" class="form-control" type="time" id="PostTime" required="required" aria-required="true" aria-describedby="date-format"  title="Entrer une heure">
+          </div>
+          <div class="form-group col-6 col-lg-4">
+            <label for="PostTime"   >Heure de fin</label>
+            <input name="heure_fin" class="form-control" value="{{old('heure_fin')}}" id="hre_fin" type="time" >
+          </div>
+      </div> --}}
       <main class="page-content">
           @foreach ($salles as $salle)
 
-        <div v-for="salle in salles" class="card" style="background-image: url({{asset('img/ORANGE_LOGO_rgb.jpg')}})">
+        <div v-for="" class="card" style="background-image: url({{asset('img/ORANGE_LOGO_rgb.jpg')}})">
           {{-- <div title="disponible" style="margin:5px;z-index:1111;height:20px;width:20px;background:green;border-radius:50%">
           </div> --}}
-          <div class="content">
+            <div class="content">
             <h2 class="title">{{$salle->name}}</h2>
             <p class="copy">{{$salle->description}}</p>
             <form style="" id="form" action="{{route('detailSalle')}}" method="get">
@@ -68,28 +78,24 @@
     }
 
 
-//  function submit(e){
-//     // ....
-//         alert(e)
-//         var debut = document.createElement("input");
-//         var fin = document.createElement("input");
-//         debut.setAttribute("type", "hidden");
-//         debut.setAttribute("name", "debut");
-//         debut.setAttribute("value", date_d);
-//         fin.setAttribute("type", "hidden");
-//         fin.setAttribute("name", "fin");
-//         fin.setAttribute("value", date_f);
-//         var f=document.getElementById('form');
-//         alert(date_d);
-//         f.appendChild(debut);
-//         f.appendChild(fin);
 
-//         // f.submit();
-//     });
 </script>
 </div>
 {{-- <script src="{{mix('js/app.js')}}"></script> --}}
 
 @endsection
+@section('extra-js')
+    <script>
 
+        $( "#date_fin" ).change(function() {
+            var date_debut = $("#date_debut").val();
+
+            var date_fin = $(this).val();
+            if(Date.parse(date_fin) <= Date.parse(date_debut)) {
+            // alert(Date.parse(date_fin));
+
+            }
+    });
+    </script>
+@endsection
 

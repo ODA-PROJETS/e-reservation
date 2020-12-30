@@ -19,6 +19,8 @@ class CreateReservationsTable extends Migration
             $table->string('hour_start');
             $table->string('date_end');
             $table->string('hour_end');
+            $table->text('motif')->nullable();
+            $table->text('others')->nullable();
 
             $table->unsignedBigInteger('salle_id')->unsigned()->index();
             $table->foreign('salle_id')->references('id')->on('salles')->onDelete('cascade');
