@@ -70,7 +70,7 @@ return [
         'create' => [
             // Define the size/looks of the content div for all CRUDs
             // To override per view use $this->crud->setCreateContentClass('class-string')
-            'contentClass' => 'col-md-8 bold-labels',
+            'contentClass' => 'col-md-8 ',
 
             // When using tabbed forms (create & update), what kind of tabs would you like?
             'tabsType' => 'horizontal', //options: horizontal, vertical
@@ -309,7 +309,7 @@ return [
         // "fr_CI" => "French (Côte d’Ivoire)",
         // "fr_DJ" => "French (Djibouti)",
         // "fr_GQ" => "French (Equatorial Guinea)",
-        // "fr_FR" => "French (France)",
+        "fr_FR" => "French (France)",
         // "fr_GA" => "French (Gabon)",
         // "fr_GP" => "French (Guadeloupe)",
         // "fr_GN" => "French (Guinea)",

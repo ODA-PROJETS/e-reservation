@@ -16,7 +16,6 @@ class Search extends Component
             $this->salle=Salle::where('name','like',$words)->orWhere('description','like',$words)->get();
             dd($this->salle);
         }
-
     }
     public function render()
     {

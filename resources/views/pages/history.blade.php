@@ -6,6 +6,13 @@
 @section('content')
 <p class="text-center mb-5" style="font-size: 25px;font-weight:bold"><a href="{{route('index')}}" style="font-size: 25px;" class="btn icon-home text-primary"> </a> Historique
 </p>
+@if (count($reservations_termines)==0)
+            <center>
+                <p class="h2" style="color: grey">Historique vide</p>
+                <p class="h3" style="color: grey">içi s'affichera votre historique de reservation</p>
+                {{-- <span class="icon icon-pdf-file"></span> --}}
+            </center>
+            @endif
     <section class="timeline">
         <div class="container">
 
@@ -24,13 +31,18 @@
               <p>{{$salle->description}}</p>
 
               <div class="p-2">
-                <a href="javascript:void(0)" class="btn btn-secondary ">reservé </a>
-                <a href="javascript:void(0)" class="btn btn-secondary icon-trash "></a>
+                  <form action="{{route('delete',$v->id)}}" method="post">
+                    @csrf
+                <button type="submit" class="btn btn-secondary icon-trash "></button>
+
+                  </form>
+                {{-- <a href="javascript:void(0)" class="btn btn-secondary ">reservé </a> --}}
               </div>
             </div>
           </div>
 
           @endforeach
+
 
         </div>
     </section>

@@ -28,10 +28,10 @@
             <input name="heure_fin" class="form-control" value="{{old('heure_fin')}}" id="hre_fin" type="time" >
           </div>
       </div> --}}
-      <main class="page-content">
+      <main class="page-content mb-5">
           @foreach ($salles as $salle)
 
-        <div v-for="" class="card" style="background-image: url({{asset('img/ORANGE_LOGO_rgb.jpg')}})">
+        <div v-for="" class="card" style="background-image: url({{asset('storage/'.$salle->image)}});background-size:cover">
           {{-- <div title="disponible" style="margin:5px;z-index:1111;height:20px;width:20px;background:green;border-radius:50%">
           </div> --}}
             <div class="content">

@@ -18,11 +18,11 @@
           </ul>
           <ul class="navbar-nav">
             <li>
-              <form class="form-inline my-2 my-lg-0">
+              <form class="form-inline my-2 my-lg-0" action="{{route('recherche')}}" method="GET">
                 <div class="row">
-                  <input class="col-9 form-control border-top border-left border-right"
+                  <input name="q" class="col-9 form-control border-top border-left border-right"
                     style="background: transparent;;color:white;border-color: white;" type="search"
-                    placeholder="rechercher une salle" aria-label="Search" wire:model="query">
+                    placeholder="rechercher une salle" aria-label="Search" value="{{Request()->q}}">
                   <button class="btn" style="margin-left:-20px" type="submit"> <i class="svg-search"></i></button>
 
                 </div>

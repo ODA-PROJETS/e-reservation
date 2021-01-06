@@ -29,7 +29,7 @@ class StatusTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'name' => 'reserver',
+                'name' => 'reservé',
                 'created_at' => '2020-12-23 13:06:11',
                 'updated_at' => '2020-12-23 13:06:13',
             ),
@@ -43,14 +43,14 @@ class StatusTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 4,
-                'name' => 'terminer',
+                'name' => 'terminé',
                 'created_at' => '2020-12-23 13:06:52',
                 'updated_at' => '2020-12-23 13:06:54',
             ),
             4 => 
             array (
                 'id' => 5,
-                'name' => 'annuler',
+                'name' => 'annulé',
                 'created_at' => '2020-12-23 15:47:17',
                 'updated_at' => '2020-12-23 15:47:18',
             ),

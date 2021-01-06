@@ -39,6 +39,12 @@ class ReservationController extends Controller
         return view('pages.reserver', compact('salles'));
     }
 
+    public function recherche(Request $request){
+            $words= "%".$request->q."%";
+            $salles=Salle::where('name','like',$words)->orWhere('description','like',$words)->get();
+            // dd($salle);
+            return view('pages.recherche', compact('salles'));
+    }
     public function detail(Request $request){
 
         $salle=Salle::find($request->salle_id);
@@ -71,6 +77,28 @@ class ReservationController extends Controller
         }
 
         Reservation::insert(['date_start'=>$date_debut,'hour_start'=>$hre_debut,'date_end'=>$date_fin,'hour_end'=>$hre_fin,'salle_id'=>$salle_id,'status_id'=>1,'departement_id'=>$departement_id,'motif'=>$motif,'others'=>$detail]);
+
+        $data = [
+            'subject' => 'Nouvelle reservation sur la plateforme e-reservation',
+            'from' => 'virtus225one@gmail.com',
+            'from_name' => 'e-reservation',
+            'template' => 'mail.reservation',
+            'info' => [
+                'fullname' => $user->name ,
+                'date' => now(),
+
+                'lien' => 'e-reservation.me/admin',
+                'nom_lien' => 'valider'
+            ]
+        ];
+
+        $details['type_email'] = 'neworder';
+        $details['email'] = "contact@yebay.ci";
+        $details['data'] = $data;
+        // Mail::to("virtus225one@gmail.com")->send(new sendMail($details));
+        // new \App\Mail\sendMail($details);
+
+
         return redirect()->route('reservationOk');
         // dd($request);
 
@@ -95,7 +123,14 @@ class ReservationController extends Controller
     }
     public function annuler(Reservation $reservation)
     {
-        $reservation->update(['status'=>5]);
+        $reservation->update(['status_id'=>5]);
         return redirect()->route('index', compact('reservation'));
     }
+
+    public function delete(Reservation $reservation){
+        $reservation->delete();
+        return redirect()->back();
+    }
+
 }
+

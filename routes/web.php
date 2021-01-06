@@ -32,6 +32,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/annuler/{reservation}',[ReservationController::class,'annuler'])->name('annuler');
 
+    Route::post('delete/{reservation}',[ReservationController::class,'delete'])->name('delete');
+
+    Route::get('/recherche',[ReservationController::class,'recherche'])->name('recherche');
+
 
 });
 

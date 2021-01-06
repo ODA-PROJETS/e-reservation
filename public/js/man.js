@@ -26,14 +26,6 @@
     $progressValue[0].style.strokeDashoffset = dashoffset
   });
 
-  $(document).ready(function () {
-    $('a').on('click', function (e) {
-      e.preventDefault()
-    })
 
-    $('#oneAtaTime details').on('click', function () {
-      $('#oneAtaTime details').not($(this)).removeAttr('open')
-    })
-  })
 }())
 // eslint-enabled
