@@ -33,7 +33,8 @@
       <main class="page-content mb-5 mt-5">
           @foreach ($salles as $salle)
 
-        <div v-for="" class="card" style="background-image: url({{asset('storage/'.$salle->image)}});background-size:cover">
+        <div v-for="" class="card" style="background-image: url({{asset('storage/'.$salle->image)}});background-repeat: no-repeat;
+    background-position: center;">
           {{-- <div title="disponible" style="margin:5px;z-index:1111;height:20px;width:20px;background:green;border-radius:50%">
           </div> --}}
             <div class="content">

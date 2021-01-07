@@ -27,9 +27,9 @@ class SallesTableSeeder extends Seeder
                 'level' => 1,
                 'status' => 1,
                 'nbre_place' => 15,
-                'image' => NULL,
+                'image' => 'salles/3fd642693bf3aa146dabb3c7f743e553.jpeg',
                 'created_at' => '2020-12-23 14:15:26',
-                'updated_at' => '2020-12-23 14:15:26',
+                'updated_at' => '2021-01-07 14:19:54',
             ),
             1 => 
             array (
@@ -39,9 +39,9 @@ class SallesTableSeeder extends Seeder
                 'level' => 2,
                 'status' => 1,
                 'nbre_place' => 20,
-                'image' => NULL,
+                'image' => 'salles/6ede0e8ebf74bfbd284623912b7deadd.jpeg',
                 'created_at' => '2020-12-23 14:16:51',
-                'updated_at' => '2020-12-23 14:16:51',
+                'updated_at' => '2021-01-07 14:19:45',
             ),
             2 => 
             array (
@@ -51,9 +51,9 @@ class SallesTableSeeder extends Seeder
                 'level' => 2,
                 'status' => 0,
                 'nbre_place' => 22,
-                'image' => NULL,
+                'image' => 'salles/140b017b11aa80955b8338804f662861.jpeg',
                 'created_at' => '2020-12-23 14:17:52',
-                'updated_at' => '2020-12-23 14:17:52',
+                'updated_at' => '2021-01-07 14:19:33',
             ),
             3 => 
             array (
@@ -63,9 +63,9 @@ class SallesTableSeeder extends Seeder
                 'level' => 2,
                 'status' => 1,
                 'nbre_place' => 50,
-                'image' => NULL,
+                'image' => 'salles/bd09d11edc4ff391d70eab649d8afda4.jpeg',
                 'created_at' => '2020-12-23 14:18:25',
-                'updated_at' => '2020-12-23 14:18:25',
+                'updated_at' => '2021-01-07 14:19:20',
             ),
             4 => 
             array (
@@ -75,9 +75,9 @@ class SallesTableSeeder extends Seeder
                 'level' => 2,
                 'status' => 1,
                 'nbre_place' => 10,
-                'image' => NULL,
+                'image' => 'salles/315cec5d1ec21a069f8e6383fd5f0413.jpeg',
                 'created_at' => '2020-12-23 14:18:59',
-                'updated_at' => '2020-12-23 14:18:59',
+                'updated_at' => '2021-01-07 14:17:08',
             ),
         ));
         
