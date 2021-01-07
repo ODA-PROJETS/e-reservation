@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row mb-5">
 
     <div class="card col-3 d-none d-lg-block border-primary" style="max-height: 300px;">
       <div class="card-body">

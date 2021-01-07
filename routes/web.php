@@ -47,4 +47,4 @@ Route::get('/logout',[\App\Http\Controllers\AuthController::class,'logout'])->na
 
 Route::get('/inscription-mobile', [\App\Http\Controllers\AuthController::class,'inscription_mobile'])->name('inscription_mobile');
 
-Route::get('reservation/{reservation}/{user}/{approuve}', [ReservationController::class,'approbation'])->name('approbation');
+Route::get('approbation/{reservation}/{user}/{approuve}', [ReservationController::class,'approbation'])->name('approbation');

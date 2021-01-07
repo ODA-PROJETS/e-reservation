@@ -98,7 +98,7 @@ class ReservationController extends Controller
                     'nom_lien' => 'valider'
                 ]
             ];
-            $details['type_email'] = 'neworder';
+            $details['type_email'] = 'reservation';
             $details['email'] = "oda@orange.ci";
             $details['data'] = $data;
 
@@ -117,8 +117,46 @@ class ReservationController extends Controller
     public function approbation(Reservation $reservation,User $user,$approuve){
 
         if($approuve==1){
-            // $reservation->update
+            $nbre_valideur = count(\DB::table('salles_has_users')->where('salle_id',$reservation->salle_id)->get());
+            // $niveau = ($reservation->niveau_validation+1/$nbre_valideur)*100;
+            if($reservation->niveau_validation<$nbre_valideur){
+                $reservation->update(array('niveau_validation'=>$reservation->niveau_validation+1));
+                $msg = "Merci d'avoir approuvé la reservation !";
+            }
+            else  $msg = "Reservation deja approuvé !";
+            session()->flash('alerte', 'reservation approuvée !');
+            session()->flash('type', 'success');
         }
+        else if($approuve==0){
+            $reservation->update(array('statut_id'=>5));
+
+            $msg = "la reservation a bien été annulée !";
+            session()->flash('alerte', 'reservation annulée !');
+            session()->flash('type', 'success');
+            $user_id = Departement::where('id',$reservation->departement_id)->first()->user_id;
+            $user = User::find($user_id);
+            $salle = Salle::find($reservation->salle_id);
+            $data = [
+                'subject' => 'Nouvelle reservation sur la plateforme e-reservation',
+                'from' => 'virtus225one@gmail.com',
+                'from_name' => 'e-reservation',
+                'template' => 'mail.annuleReservation',
+                'info' => [
+                    'user' => $user,
+                    'salle' =>$salle,
+                    'date' => now(),
+                    'reservation'=>$reservation,
+                    'lien' => 'e-reservation.me/admin',
+                    'nom_lien' => 'valider'
+                ]
+            ];
+            $details['type_email'] = 'reservation';
+            $details['email'] = "oda@orange.ci";
+            $details['data'] = $data;
+
+            Mail::to($user->email)->send(new sendMail($details));
+        }
+        return view('pages.approuver', compact('msg'));
 
     }
     public function detailReservation(Reservation $reservation){
