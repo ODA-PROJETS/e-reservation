@@ -132,7 +132,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">Bonsoir Monsieur, un utilisateur désire réserver une salle dont vous avez les droits d'accès.</p>
+                            <p style="margin: 0;">Bonjour Mr/Mme {{$info['user']->name}}, un utilisateur désire réserver la salle `{{$info['salle']->name}}` dont vous avez les droits d'accès.</p>
                         </td>
                     </tr>
                     <tr>
@@ -140,11 +140,11 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
-                                        <table border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td align="center" style="border-radius: 3px;" bgcolor="#FFA73B"><a href="#" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">Valider la reservation</a></td>
-                                            </tr>
-                                        </table>
+                                        <div>
+
+                                                <button style="border-radius: 3px;background-color: #FFA73B;" ><a href="#" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">Valider la reservation</a></button>
+                                                <button style="border-radius: 3px;background-color: #FFA73B;" ><a href="#" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">Annuler la reservation</a></button>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>

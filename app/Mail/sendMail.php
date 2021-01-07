@@ -28,9 +28,12 @@ class sendMail extends Mailable
      */
     public function build()
     {
-        return $this->from($this->data['from'], $this->data['from_name'])
-            ->subject($this->data['subject'])
-            ->view($this->data['template'])
-            ->with($this->data['info']);
+        $info = $this->data['data']['info'];
+        // dd($this->data['data']['info']['user']->name);
+
+        return $this->from($this->data['data']['from'], $this->data['data']['from_name'])
+            ->subject($this->data['data']['subject'])
+            ->view($this->data['data']['template'],compact('info'))
+       ;
     }
 }

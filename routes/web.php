@@ -46,3 +46,5 @@ Route::get('/login',[\App\Http\Controllers\AuthController::class,'index'])->name
 Route::get('/logout',[\App\Http\Controllers\AuthController::class,'logout'])->name('logout');
 
 Route::get('/inscription-mobile', [\App\Http\Controllers\AuthController::class,'inscription_mobile'])->name('inscription_mobile');
+
+Route::get('reservation/{reservation}/{user}/{approuve}', [ReservationController::class,'approbation'])->name('approbation');

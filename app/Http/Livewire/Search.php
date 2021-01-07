@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Search extends Component
 {
-    public String $query="lol";
+    public String $query="lold";
     public $salle=[];
 
     public function updatedQuery(){

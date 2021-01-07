@@ -17,7 +17,7 @@
             <!-- <li class="nav-item"><a class="nav-link" href="#">Historique</a></li> -->
           </ul>
           <ul class="navbar-nav">
-            <li>
+            {{-- <li>
               <form class="form-inline my-2 my-lg-0" action="{{route('recherche')}}" method="GET">
                 <div class="row">
                   <input name="q" class="col-9 form-control border-top border-left border-right"
@@ -27,7 +27,7 @@
 
                 </div>
               </form>
-            </li>
+            </li> --}}
             <li class="nav-item dropdown">
               <button type="button" class="nav-link btn btn-link btn-inverse dropdown-toggle d-flex align-items-center"
                 data-toggle="dropdown">

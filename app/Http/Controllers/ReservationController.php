@@ -5,7 +5,11 @@ use App\Models\Departement;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Salle;
+use App\Mail\sendMail;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+
 class ReservationController extends Controller
 {
     public function index()
@@ -64,7 +68,7 @@ class ReservationController extends Controller
         $motif = $request->motif;
         $detail = $request->detail;
         $salle_id=$request->salle_id;
-
+        $salle = Salle::find($salle_id);
         $departement_id= Departement::where('user_id',$user->id)->first()->id;
         // dd($hre_debut,$hre_fin,$motif);
         if($hre_debut=="" || $hre_fin=="" || $motif=="" ){
@@ -76,34 +80,47 @@ class ReservationController extends Controller
             ]);
         }
 
-        Reservation::insert(['date_start'=>$date_debut,'hour_start'=>$hre_debut,'date_end'=>$date_fin,'hour_end'=>$hre_fin,'salle_id'=>$salle_id,'status_id'=>1,'departement_id'=>$departement_id,'motif'=>$motif,'others'=>$detail]);
+        $reservation_id=Reservation::insertGetId(['date_start'=>$date_debut,'hour_start'=>$hre_debut,'date_end'=>$date_fin,'hour_end'=>$hre_fin,'salle_id'=>$salle_id,'status_id'=>1,'departement_id'=>$departement_id,'motif'=>$motif,'others'=>$detail]);
+        $reservation = Reservation::find($reservation_id);
+        foreach(\DB::table('salles_has_users')->where('salle_id',$salle_id)->get() as $v){
+            $user = User::find($v->user_id);
+            $data = [
+                'subject' => 'Nouvelle reservation sur la plateforme e-reservation',
+                'from' => 'virtus225one@gmail.com',
+                'from_name' => 'e-reservation',
+                'template' => 'mail.reservation',
+                'info' => [
+                    'user' => $user,
+                    'salle' =>$salle,
+                    'date' => now(),
+                    'reservation'=>$reservation,
+                    'lien' => 'e-reservation.me/admin',
+                    'nom_lien' => 'valider'
+                ]
+            ];
+            $details['type_email'] = 'neworder';
+            $details['email'] = "oda@orange.ci";
+            $details['data'] = $data;
 
-        $data = [
-            'subject' => 'Nouvelle reservation sur la plateforme e-reservation',
-            'from' => 'virtus225one@gmail.com',
-            'from_name' => 'e-reservation',
-            'template' => 'mail.reservation',
-            'info' => [
-                'fullname' => $user->name ,
-                'date' => now(),
 
-                'lien' => 'e-reservation.me/admin',
-                'nom_lien' => 'valider'
-            ]
-        ];
+            Mail::to($user->email)->send(new sendMail($details));
+        }
 
-        $details['type_email'] = 'neworder';
-        $details['email'] = "contact@yebay.ci";
-        $details['data'] = $data;
-        // Mail::to("virtus225one@gmail.com")->send(new sendMail($details));
+
+
         // new \App\Mail\sendMail($details);
-
 
         return redirect()->route('reservationOk');
         // dd($request);
 
     }
+    public function approbation(Reservation $reservation,User $user,$approuve){
 
+        if($approuve==1){
+            // $reservation->update
+        }
+
+    }
     public function detailReservation(Reservation $reservation){
         $user = \Auth::user();
         $departement= Departement::where('user_id',$user->id)->first();

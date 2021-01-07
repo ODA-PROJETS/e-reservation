@@ -5,16 +5,18 @@
 @endsection
 @section('content')
 <div id="app">
-      <p class="text-center mb-5" style="font-size: 25px;font-weight:bold">&nbsp; Salle à Reserver</p>
+      <p class="text-center mb-5" style="font-size: 25px;font-weight:bold">&nbsp; Reservation</p>
+    @livewire('search')
+
       <div class="row">
 
         <div class="form-group col-6 col-lg-4 offset-lg-2">
-          <label for="PreDate" class="">Debut</label>
-          <input name="date_debut" id="date_debut" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" class="form-control" type="date" id="PreDate" aria-required="true" aria-describedby="date-format"  title="Entrer une date avec le format dd/mm/yyyy ">
+          <label style="display: none" for="PreDate" class="">Debut</label>
+          <input name="date_debut" id="date_debut" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" class="form-control" type="hidden" id="PreDate" aria-required="true" aria-describedby="date-format"  title="Entrer une date avec le format dd/mm/yyyy ">
         </div>
         <div class="form-group col-6 col-lg-4">
-          <label for="PostDate" class="float-right">Fin</label>
-          <input name="date_fin" id="date_fin" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" class="form-control" type="date" id="PostDate" aria-required="true" aria-describedby="date-format"  title="Entrer une date avec le format dd/mm/yyyy ">
+          <label style="display: none" for="PostDate" class="float-right">Fin</label>
+          <input name="date_fin" id="date_fin" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" class="form-control" type="hidden" id="PostDate" aria-required="true" aria-describedby="date-format"  title="Entrer une date avec le format dd/mm/yyyy ">
         </div>
 
       </div>
@@ -28,7 +30,7 @@
             <input name="heure_fin" class="form-control" value="{{old('heure_fin')}}" id="hre_fin" type="time" >
           </div>
       </div> --}}
-      <main class="page-content mb-5">
+      <main class="page-content mb-5 mt-5">
           @foreach ($salles as $salle)
 
         <div v-for="" class="card" style="background-image: url({{asset('storage/'.$salle->image)}});background-size:cover">
