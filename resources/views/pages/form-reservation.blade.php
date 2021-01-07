@@ -22,7 +22,7 @@
   </style>
 <div class="row featurette">
     <div class="col-md-5 order-md-1">
-        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{asset('img/ORANGE_LOGO_rgb.jpg')}}" alt="">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{asset('storage/'.$salle->image)}}" alt="">
         {{-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em" class="font-weight-bold">aucune image</text></svg> --}}
     </div>
     <form class="col-md-7 mt-2 order-md-2" method="POST" action="{{route('valideReservation')}}" id="myform">
