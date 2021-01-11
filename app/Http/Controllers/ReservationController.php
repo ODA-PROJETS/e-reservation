@@ -128,7 +128,7 @@ class ReservationController extends Controller
             session()->flash('type', 'success');
         }
         else if($approuve==0){
-            $reservation->update(array('statut_id'=>5));
+            $reservation->update(array('status_id'=>5));
 
             $msg = "la reservation a bien été annulée !";
             session()->flash('alerte', 'reservation annulée !');

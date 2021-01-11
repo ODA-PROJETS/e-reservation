@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('extra-css')
-<link href="{{asset('css/perso.css')}}" rel="stylesheet">
+<link href="{{asset('css/pers.css')}}" rel="stylesheet">
 
 @endsection
 @section('content')
@@ -24,7 +24,7 @@
 
             <div class="timeline-content timeline-card js--fadeInRight">
 
-            <div class="timeline-img-header" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url('img/ORANGE_LOGO_rgb.jpg') center center no-repeat;">
+            <div class="timeline-img-header" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),  url('{{asset('storage/'.$salle->image)}}') center center no-repeat;">
                 <h2>{{$salle->name}}</h2>
               </div>
               <div class="date">{{$v->date_start}} {{$v->hour_start}}-{{$v->hour_end}}</div>

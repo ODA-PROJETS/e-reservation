@@ -43,7 +43,16 @@ class SallesHasUsersTableSeeder extends Seeder
                 'salle_id' => 4,
                 'user_id' => 2,
                 'deleted_at' => NULL,
-                'created_at' => NULL,
+                'created_at' => '2021-01-07 09:37:34',
+                'updated_at' => NULL,
+            ),
+            3 => 
+            array (
+                'id' => 5,
+                'salle_id' => 4,
+                'user_id' => 4,
+                'deleted_at' => NULL,
+                'created_at' => '2021-01-07 09:46:54',
                 'updated_at' => NULL,
             ),
         ));

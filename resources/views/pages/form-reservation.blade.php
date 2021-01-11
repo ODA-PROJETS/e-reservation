@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('extra-css')
-<link href="{{asset('css/perso.css')}}" rel="stylesheet">
+<link href="{{asset('css/pers.css')}}" rel="stylesheet">
 
 @endsection
 @section('content')
@@ -24,6 +24,12 @@
     <div class="col-md-5 order-md-1">
         <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{asset('storage/'.$salle->image)}}" alt="">
         {{-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em" class="font-weight-bold">aucune image</text></svg> --}}
+        {{-- <P class="mt-3 text-center"><a class="icon icon-map-pin" style="font-size:45px" href="https://www.google.ci/maps/place/Orange+Digital+Academy/@5.3385539,-3.9608145,17z/data=!3m1!4b1!4m5!3m4!1s0xfc1ed6f9c8f3dd1:0x1b0ee9c132884861!8m2!3d5.3385539!4d-3.9586258"></a></P> --}}
+
+<div class="mt-3">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.5117544241148!2d-3.9608144859774788!3d5.338553896127428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1ed6f9c8f3dd1%3A0x1b0ee9c132884861!2sOrange%20Digital%20Academy!5e0!3m2!1sfr!2sci!4v1610034212875!5m2!1sfr!2sci" width="450" height="300" frameborder="0" style="border:2px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+</div>
     </div>
     <form class="col-md-7 mt-2 order-md-2" method="POST" action="{{route('valideReservation')}}" id="myform">
       @csrf
